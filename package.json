@@ -10,5 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "cypress": "^13.9.0"
+  },
+  
+  "scripts": {
+    "cypress:open:chrome": "cypress open --browser chrome"
   }
+
 }
