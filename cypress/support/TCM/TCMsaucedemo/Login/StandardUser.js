@@ -3,7 +3,9 @@ import { titlebar } from '../../../../pageObjects/Posaucedemo/LoginPage.js';
 
 describe('Standard User Tests', () => {
     beforeEach(() => {
-      cy.visit('https://www.saucedemo.com/v1/'); // Adjust the URL as needed
+      const baseUrl = Cypress.config('baseUrl');
+    
+      cy.visit(baseUrl); // URL from cypress config
     });
   
     it('should verify the title bar', () => {

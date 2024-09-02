@@ -17,7 +17,7 @@ const { defineConfig } = require("cypress");
       ],
       // You can also explicitly specify a different folder or pattern
       // specPattern: 'cypress/tests/**/*.js',
-      baseUrl: 'http://AutomationTraining.com', // Set the base URL if needed
+      baseUrl: 'https://www.saucedemo.com/', // Set the base URL if needed
       // Set Chrome as the default browser
       browser: 'chrome',
     },
