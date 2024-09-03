@@ -26,14 +26,30 @@ const verifyLogo = () => {
     }
 
 
-const verifyLoginForm = () => {
-        cy.get('[class="username"]') // username form
+const verifyLoginForm = (Username,Password) => {
+        
+    it("should be able to input valid Username", () =>{
+        cy.get('[data-test="username"]') // username form
             .should('be.visible') 
             .should('have.attr', 'placeholder', 'Username')
+            .type(Username);
+    });
 
-    }
+    it("should be able to input valid Password", () =>{
+        cy.get('[data-test="password"]') // username form
+            .should('be.visible') 
+            .should('have.attr', 'placeholder', 'Password')
+            .type(Password);
+    });
+
+    it("should be successfully Login", () =>{
+        cy.get('[data-test="login-button"]') // username form
+            .should('be.visible') 
+            .click();
+    });
+};
 
 export function titlebar() {
     
-    verifyLoginForm();
+    verifyLoginForm(Username,Password);
 }

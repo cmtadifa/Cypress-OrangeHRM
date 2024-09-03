@@ -8,7 +8,11 @@ const { defineConfig } = require("cypress");
 //   },
 
 
-  module.exports = {
+  module.exports = defineConfig({
+    // defaultCommandTimeout:15000,
+    // pageLoadTimeout: 30000,
+    // reporter: 'cypress-mochawesome-reported',
+    
     e2e: {
       // Define the folder where Cypress looks for test files
       specPattern: [ 
@@ -17,11 +21,13 @@ const { defineConfig } = require("cypress");
       ],
       // You can also explicitly specify a different folder or pattern
       // specPattern: 'cypress/tests/**/*.js',
-      baseUrl: 'https://www.saucedemo.com/', // Set the base URL if needed
+      baseUrl: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login', // Set the base URL if needed
+      
       // Set Chrome as the default browser
       browser: 'chrome',
+      // chromeWebSecurity: false
     },
-  };
+  });
 
 
 
