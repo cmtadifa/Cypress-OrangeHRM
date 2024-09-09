@@ -43,6 +43,3 @@ const { defineConfig } = require("cypress");
     //     baseUrl: 'http://your-app-url', // Set the base URL if needed
     //   },
     // };
-
-
-
