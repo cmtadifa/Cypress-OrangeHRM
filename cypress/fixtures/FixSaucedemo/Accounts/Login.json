@@ -11,7 +11,8 @@
         },
         "user4": {
             "Username": "performance_glitch_user"
-        },
-    "Password" :"secret_sauce"
-    }
+        }
+    },
+    "Password":"secret_sauce"
+    
 }

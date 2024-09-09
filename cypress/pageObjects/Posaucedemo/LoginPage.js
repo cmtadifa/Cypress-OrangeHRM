@@ -32,14 +32,16 @@ const verifyLoginForm = (Username,Password) => {
         cy.get('[data-test="username"]') // username form
             .should('be.visible') 
             .should('have.attr', 'placeholder', 'Username')
-            .type(Username);
+            .type(Username)
+            .then(() => console.log('Typed Username:', Username)); // Log to verify
     });
 
     it("should be able to input valid Password", () =>{
         cy.get('[data-test="password"]') // username form
             .should('be.visible') 
             .should('have.attr', 'placeholder', 'Password')
-            .type(Password);
+            .type(Password)
+            .then(() => console.log('Typed Password:', Password)); // Log to verify
     });
 
     it("should be successfully Login", () =>{
@@ -49,7 +51,7 @@ const verifyLoginForm = (Username,Password) => {
     });
 };
 
-export function titlebar() {
+export function titlebar(Username,Password) {
     
     verifyLoginForm(Username,Password);
 }

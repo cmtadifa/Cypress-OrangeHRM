@@ -20,6 +20,4 @@ describe('Standard User Tests', () => {
       // Add assertions to verify successful login
       cy.url().should('include', '/dashboard'); // Example assertion
     });
-
-    
   });

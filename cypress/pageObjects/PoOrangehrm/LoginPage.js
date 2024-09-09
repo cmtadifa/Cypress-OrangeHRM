@@ -1,5 +1,5 @@
 class LoginPage {
-    verifyLoginForm(Username, Password) {
+    static verifyLoginForm(Username, Password) {
       cy.get('[name="username"]') // username form
         .should('be.visible')
         .should('have.attr', 'placeholder', 'Username')
