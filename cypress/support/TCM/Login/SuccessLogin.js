@@ -1,9 +1,9 @@
-import LoginPage from '../../../../pageObjects/PoOrangehrm/LoginPage.js';
+import LoginPage from '../../../pageObjects/LoginPage.js';
 
 
 describe('Standard User Tests', () => {
     beforeEach(function() {
-      cy.fixture("FixOrangehrm/Accounts/Login").then((data) => {
+      cy.fixture("Accounts/Login").then((data) => {
         this.data = data; // `this.data` is now accessible in your test block
     });
 
@@ -12,10 +12,10 @@ describe('Standard User Tests', () => {
     
     });
   
-    const loginpage = new LoginPage();
+    
     it('should successfully login with valid credentials', function () {
       const { Username, Password } = this.data.Success; // Access the "Success" data
-      loginpage.verifyLoginForm(Username, Password); // Use the data in the login function
+      LoginPage.verifyLoginForm(Username, Password); // Use the data in the login function
   
       // Add assertions to verify successful login
       cy.url().should('include', '/dashboard'); // Example assertion
