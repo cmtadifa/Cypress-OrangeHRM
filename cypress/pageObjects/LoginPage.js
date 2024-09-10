@@ -41,7 +41,44 @@ class LoginPage {
         .should('have.text','Invalid credentials');
         
     }
+
+    static verifyRequiredfields(){
+      cy.get('[name="username"]', { timeout: 10000 }) // username form
+      .should('be.visible')
+      .should('have.attr', 'placeholder', 'Username')
+
+      cy.get('[name="password"]', { timeout: 10000 }) // password form
+      .should('be.visible')
+      .should('have.attr', 'placeholder', 'Password')
+
+      cy.get('[type="submit"]', { timeout: 10000 }) // submit button
+      .should('be.visible')
+      .click();
+
+      cy.get('[name="username"]', { timeout: 10000 }) // username form
+      .should('be.visible')
+      .should('have.css', 'border', '1px solid rgb(235, 9, 16)');
+
+      cy.get('.oxd-input-group.oxd-input-field-bottom-space', { timeout: 10000 })
+        .eq(0)
+        .find('.oxd-input-group__message', { timeout: 10000 }) // username form
+        .should('be.visible')
+        .should('have.text', 'Required');
+
+      cy.get('[name="password"]', { timeout: 10000 }) // username form
+        .should('be.visible')
+        .should('have.css', 'border', '1px solid rgb(235, 9, 16)');
+  
+      cy.get('.oxd-input-group.oxd-input-field-bottom-space', { timeout: 10000 })
+        .eq(1)
+        .find('.oxd-input-group__message', { timeout: 10000 }) // username form
+        .should('be.visible')
+        .should('have.text', 'Required');
+  
+
       
+    }
+
 
   }
   
