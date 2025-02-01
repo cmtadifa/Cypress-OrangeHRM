@@ -12,13 +12,15 @@ const { defineConfig } = require("cypress");
     // defaultCommandTimeout:15000,
     // pageLoadTimeout: 30000,
     // reporter: 'cypress-mochawesome-reported',
-    
+    defaultCommandTimeout: 10000,
     e2e: {
       // Define the folder where Cypress looks for test files
       specPattern: [ 
+        'cypress/integrations',
         'cypress/pageObjects', // This includes all spec files within cypress folder and its subfolders
         'cypress/support' // This includes all spec files within cypress folder and its subfolders
       ],
+      testIsolation: false,
       // You can also explicitly specify a different folder or pattern
       // specPattern: 'cypress/tests/**/*.js',
       baseUrl: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login', // Set the base URL if needed

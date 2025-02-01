@@ -1,18 +1,39 @@
-import LoginPage from '../../../pageObjects/LoginPage.js';
+import LoginPage from '../../pageObjects/LoginPage.js';
 
 
-describe('Invalid Credentials', () => {
+describe('verify Required Fields', () => {
   
-  beforeEach(function() {
+  before(function() {
     const baseUrl = Cypress.config('baseUrl');
     cy.visit(baseUrl); // URL from cypress config
-
-  });
+    });
     
-    it('should display Required Fields error message', function () {
+    it('verify Username Field', function () {
+      LoginPage.verifyUsernameField();
+    });
 
-      LoginPage.verifyRequiredfields(); // Use the data in the login function
-  
+    it('verify Password Field', function () {
+      LoginPage.verifyPasswordField();
+    });
+
+    it('verify clicking Submit Button', function () {
+      LoginPage.testclickSubmitBtn();
+    });
+
+    it('verify Username border color', function () {
+      LoginPage.verifyUsernameBorderClr();
+    });
+
+    it('verify Username required error text', function () {
+      LoginPage.verifyUsernameRqrderrorText();
+    });
+
+    it('verify Password border color', function () {
+      LoginPage.verifyPasswordBorderClr();
+    });
+
+    it('verify Password required error text', function () {
+      LoginPage.verifyPasswordRqrderrorText();
     });
     
   });
