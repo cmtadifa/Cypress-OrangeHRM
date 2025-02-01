@@ -107,8 +107,8 @@ class LoginPage {
 
     static testLoginScenario(){
       require('../TCM/Login/Success_Login.js');
-      require('../TCM/Login/Required_Fields.js');
       require('../TCM/Login/Invalid_Credentials.js');
+      require('../TCM/Login/Required_Fields.js');
     }
 
   }

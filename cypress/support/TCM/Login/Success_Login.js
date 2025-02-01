@@ -34,11 +34,11 @@ describe('Successfully Log In using Valid Credentials', () => {
     });
 
     it('verify clicking Profile Dropdown', function () {
-      LoginPage.clickingProfileDropdown();
+      LoginPage.verifyclickingProfileDropdown();
     });
 
     it('verify clicking Logout button', function () {
-      LoginPage.clickingLogoutBtn();
+      LoginPage.verifyclickingLogoutBtn();
     });
 
     it('verify successfully logged out and verify Login URL Link', function () {
