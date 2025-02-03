@@ -24,7 +24,6 @@ const { defineConfig } = require("cypress");
       // You can also explicitly specify a different folder or pattern
       // specPattern: 'cypress/tests/**/*.js',
       baseUrl: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login', // Set the base URL if needed
-      
       // Set Chrome as the default browser
       browser: 'chrome',
       // chromeWebSecurity: false

@@ -111,6 +111,10 @@ class LoginPage {
       require('../TCM/Login/Required_Fields.js');
     }
 
+    static testSuccessfullyLogIn(){
+      require('../TCM/Login/Success_Login.js');
+    }
+
   }
   
   export default LoginPage;

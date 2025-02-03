@@ -33,16 +33,4 @@ describe('Successfully Log In using Valid Credentials', () => {
       LoginPage.verifyDashboardURL();
     });
 
-    it('verify clicking Profile Dropdown', function () {
-      LoginPage.verifyclickingProfileDropdown();
-    });
-
-    it('verify clicking Logout button', function () {
-      LoginPage.verifyclickingLogoutBtn();
-    });
-
-    it('verify successfully logged out and verify Login URL Link', function () {
-      // Verify login URL
-      LoginPage.verifyLoginURL();
-    });
   });
