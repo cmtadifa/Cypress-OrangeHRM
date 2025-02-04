@@ -14,7 +14,8 @@ const PIMselectors = {
  detailsSwitch: '.oxd-switch-input',
  detailsTextFieldSwitch: '.oxd-input',
  statusRadioBtn: '.oxd-radio-input',
- saveBtn: '.orangehrm-left-space'
+ saveBtn: '.orangehrm-left-space',
+ successModal: '.oxd-toast-container'
 }
   
 const firstName = faker.name.firstName();
@@ -146,6 +147,9 @@ class pimPage {
         cy.get(PIMselectors.saveBtn)
             .should('to.be.visible')
             .click();
+
+        cy.get(PIMselectors.successModal)
+            .should('to.be.visible')
     }
 
     static testAddEmployee(){
