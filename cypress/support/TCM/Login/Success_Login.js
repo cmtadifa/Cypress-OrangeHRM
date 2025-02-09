@@ -10,7 +10,7 @@ describe('Successfully Log In using Valid Credentials', () => {
 
   beforeEach(function() {
     cy.fixture("Accounts/Login").then((data) => {
-    this.data = data; // this.data is now accessible in your test block
+    this.data = data; 
     });
   });
 
