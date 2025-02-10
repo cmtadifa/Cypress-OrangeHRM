@@ -1,24 +1,41 @@
 const sideBarselectors = {
- sidebarWrapper: '.oxd-main-menu-item-wrapper',
- sideBarItem: '.oxd-main-menu-item'
-}
-     
-class sideBarPage {
-
-    static verifyClickingPIMbtn(){
-        cy.get(sideBarselectors.sidebarWrapper).eq(1)
-        .click()
-
-    }
-
-    static verifyPIMUrl(){
-        cy.url().should('include', '/web/index.php/pim/');
-    }
-
-    static clickPIMBtn(){
-        require('../TCM/sideBar/clickingPIM.js');
-    }
-}
+    sidebarWrapper: '.oxd-main-menu-item-wrapper',
+    sideBarItem: '.oxd-main-menu-item'
+   }
+        
+   class sideBarPage {
    
-export default sideBarPage;
-     
+       static verifySidebarBtn(sideBar){
+           let sideBarItem, urlRedirection;
+           switch(sideBar){
+               case 'Admin':
+                   sideBarItem = 0;
+                   urlRedirection = 'admin/viewSystemUsers';
+                   break;
+               case 'PIM':
+                   sideBarItem = 1;
+                   urlRedirection = 'pim/viewEmployeeList';
+                   break;
+               case 'Leave':
+                   sideBarItem = 2;
+                   urlRedirection = 'leave/viewLeaveList';
+                   break;
+               case 'Time':
+                   sideBarItem = 3;
+                   urlRedirection = 'time/viewEmployeeTimesheet';
+                   break;
+           }
+           cy.get(sideBarselectors.sidebarWrapper).eq(sideBarItem)
+           .click()
+   
+           cy.url().should('include', urlRedirection);
+       }
+   
+       //wrapper function
+       static clickPIMBtn(){
+           require('../TCM/sideBar/clickingPIM.js');
+       }
+   }
+      
+   export default sideBarPage;
+        
