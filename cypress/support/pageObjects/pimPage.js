@@ -41,7 +41,8 @@ const PIMselectors = {
         radioBtnPDetails: '.oxd-radio-input',
         saveBtnPDetails: '.orangehrm-left-space',
         attchmentAddBtnPDetails: '.oxd-button--text',
-        attchFilePDetails: '.oxd-file-input-icon'
+        attchFilePDetails: 'input[type="file"]',
+        commentBoxPDetails: '.oxd-textarea'
     }
 }
 
@@ -299,8 +300,21 @@ class pimPage {
         }
     }
 
-    static verifyPDetailsSaveBtn(){
-        cy.get(PIMselectors.empPDetails.saveBtnPDetails).eq(0)
+    static verifyPDetailsSaveBtn(btn){
+        let saveBtn;
+        switch(btn){
+            case 'PDetails':
+                saveBtn = 0
+                break;
+            case 'CFields':
+                saveBtn = 1
+                break;
+            case 'attachment':
+                saveBtn = 2
+                break;
+        }
+
+        cy.get(PIMselectors.empPDetails.saveBtnPDetails).eq(saveBtn)
             .should('to.be.visible')
             .click();
 
@@ -320,15 +334,15 @@ class pimPage {
     static verifyattachFile(){
         cy.get(PIMselectors.empPDetails.attchmentAddBtnPDetails)
             .click()
-
-            cy.fixture('Images/dubai.jpeg', 'base64').then((fileContent) => {
-                cy.get('input[type="file"]').selectFile({
-                  contents: Cypress.Blob.base64StringToBlob(fileContent, 'image/jpeg'),
-                  fileName: 'dubai.jpeg',
-                  mimeType: 'image/jpeg',
-                });
-              });
+            cy.get(PIMselectors.empPDetails.attchFilePDetails).selectFile('cypress/fixtures/Images/test.jpg', { force: true }); // ✅ Attach file
     }
+
+    static verifyCommnentBox(){
+        cy.get(PIMselectors.empPDetails.commentBoxPDetails)
+            .should('be.visible')
+            .should('have.attr', 'placeholder', 'Type comment here')
+            .type("This is a test comment");
+      }
 
     // wrapper function
     static testAddEmployee(){

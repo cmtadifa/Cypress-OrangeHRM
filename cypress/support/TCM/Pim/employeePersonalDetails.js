@@ -30,15 +30,27 @@ describe('Employee Personal Details', () => {
     pimPage.verifyGender("Male");
   });
 
-  it('verify Employee Details to be saved', function () {
-    pimPage.verifyPDetailsSaveBtn("Male");
+  it('verify Employee Personal Details to be saved', function () {
+    pimPage.verifyPDetailsSaveBtn("PDetails");
   });
 
   it('verify Employee Blood Type', function () {
     pimPage.verifyBType("O+");
   });
 
+  it('verify Employee Customize Fields to be saved', function () {
+    pimPage.verifyPDetailsSaveBtn("CFields");
+  });
+
   it('verify Attaching a File', function () {
     pimPage.verifyattachFile();
+  });
+
+  it('verify Comment Box', function () {
+    pimPage.verifyCommnentBox();
+  });
+
+  it('verify Employee Attachments to be saved', function () {
+    pimPage.verifyPDetailsSaveBtn("attachment");
   });
 });
