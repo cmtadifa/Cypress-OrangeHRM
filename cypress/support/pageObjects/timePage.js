@@ -10,7 +10,7 @@ const timeSelectors = {
     PunchInOut: {
         headerTitle: '.orangehrm-main-title',
         timeBtn: '.oxd-icon.bi-clock',
-        timePicker: 'oxd-time-picker',
+        timePicker: '.oxd-time-picker',
         timeHrTextField: '.oxd-time-hour-input-text',
         timeMinTextField: '.oxd-time-minute-input-text',
         timeAM:'input[name="am"]',
@@ -33,12 +33,15 @@ class timePage {
     }
 
     static verifyTime() {
-        cy.get(timeSelectors.PunchInOut.timeBtn).click({ force: true });
+        cy.get(timeSelectors.PunchInOut.timeBtn).click()
+            .should('be.visible');
         cy.get(timeSelectors.PunchInOut.timePicker)
-        .should('be.visible') // tobe refactored need to check the timePicker
-            // .find(timeSelectors.PunchInOut.timeAM).click();
-            // .find(timeSelectors.PunchInOut.timeMinTextField).type('30')
-            // .find(timeSelectors.PunchInOut.timeAM).click();
+            .should('be.visible')
+        .within(() => {
+                cy.get(timeSelectors.PunchInOut.timeHrTextField).clear().type('12')
+                cy.get(timeSelectors.PunchInOut.timeMinTextField).clear().type('30')
+                cy.get(timeSelectors.PunchInOut.timeAM).click();
+        });
     }
 
 
