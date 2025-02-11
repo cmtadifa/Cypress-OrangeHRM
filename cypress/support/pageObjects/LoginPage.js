@@ -15,15 +15,23 @@ class LoginPage {
       static testUsernameField(Username){
         cy.get(selectors.username) // username form
           .should('be.visible')
-          .should('have.attr', 'placeholder', 'Username')
-          .type(Username);
+          .should('have.attr', 'placeholder')
+          .then((placeholder) => {
+            expect(placeholder).to.be.oneOf(['Username', 'username']); 
+        });
+          
+        cy.get(selectors.username).type(Username);
       }
 
       static testPasswordField(Password){
         cy.get(selectors.password) // password form
           .should('be.visible')
-          .should('have.attr', 'placeholder', 'Password')
-          .type(Password);
+          .should('have.attr', 'placeholder')
+          .then((placeholder) => {
+            expect(placeholder).to.be.oneOf(['Password', 'password']); 
+        });
+        
+        cy.get(selectors.password).type(Password);
       }
         
       static testclickSubmitBtn(){

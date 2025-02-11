@@ -35,6 +35,10 @@ const sideBarselectors = {
        static clickPIMBtn(){
            require('../TCM/sideBar/clickingPIM.js');
        }
+
+       static clickTimeBtn(){
+           require('../TCM/sideBar/clickingTime.js');
+       }
    }
       
    export default sideBarPage;
