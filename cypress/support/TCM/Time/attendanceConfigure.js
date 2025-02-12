@@ -14,6 +14,10 @@ describe('Attendance Configure', () => {
         timePage.verifyClickingCPunchInOut();
     });
 
+    it('verify Date today', function () {
+        timePage.verifyDate();
+    });
+
     it('verify Setting a time', function () {
         timePage.verifyTime();
     });

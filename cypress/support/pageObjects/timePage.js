@@ -1,3 +1,5 @@
+import { expect } from 'chai';
+
 const timeSelectors = {
     navBarBtn: '.oxd-topbar-body-nav-tab',
     navBarDropDown: '.oxd-topbar-body-nav-tab-link',
@@ -9,6 +11,7 @@ const timeSelectors = {
     },
     PunchInOut: {
         headerTitle: '.orangehrm-main-title',
+        dateTextField: '.oxd-input--active',
         timeBtn: '.oxd-icon.bi-clock',
         timePicker: '.oxd-time-picker',
         timeHrTextField: '.oxd-time-hour-input-text',
@@ -32,6 +35,15 @@ class timePage {
             .find(timeSelectors.navBarDropDown).eq(1).click();
     }
 
+    static verifyDate() {
+        cy.get(timeSelectors.PunchInOut.dateTextField)
+            .invoker('val')
+            .then((value) => {
+                const today = dayjs().format('YYYY-MM-DD');
+                expect(value).to.equal(today);
+            })
+    }
+    
     static verifyTime() {
         cy.get(timeSelectors.PunchInOut.timeBtn).click()
             .should('be.visible');
