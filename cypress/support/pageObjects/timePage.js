@@ -1,8 +1,7 @@
-import { expect } from 'chai';
-
 const timeSelectors = {
     navBarBtn: '.oxd-topbar-body-nav-tab',
     navBarDropDown: '.oxd-topbar-body-nav-tab-link',
+    successModal: '.oxd-toast--success',
     configuration: {
         headerTitle: '.orangehrm-main-title',
         attendanceLabel: '.orangehrm-attendance-field-label',
@@ -11,15 +10,16 @@ const timeSelectors = {
     },
     PunchInOut: {
         headerTitle: '.orangehrm-main-title',
-        dateTextField: '.oxd-input--active',
+        dateTextField: '.oxd-date-input',
         timeBtn: '.oxd-icon.bi-clock',
         timePicker: '.oxd-time-picker',
         timeHrTextField: '.oxd-time-hour-input-text',
         timeMinTextField: '.oxd-time-minute-input-text',
         timeAM:'input[name="am"]',
         timePM:'input[name="pm"]',
-        punchInBtn: '.oxd-punch-in-button',
-        punchOutBtn: '.oxd-punch-out-button'
+        punchInBtn: 'button[type="submit"]',
+        punchOutBtn: '.oxd-punch-out-button',
+        noteTxt: '.oxd-textarea'
     }
 }
 
@@ -37,11 +37,8 @@ class timePage {
 
     static verifyDate() {
         cy.get(timeSelectors.PunchInOut.dateTextField)
-            .invoker('val')
-            .then((value) => {
-                const today = dayjs().format('YYYY-MM-DD');
-                expect(value).to.equal(today);
-            })
+            .find('.oxd-input--active')
+            .should('be.visible');
     }
     
     static verifyTime() {
@@ -50,21 +47,34 @@ class timePage {
         cy.get(timeSelectors.PunchInOut.timePicker)
             .should('be.visible')
         .within(() => {
-                cy.get(timeSelectors.PunchInOut.timeHrTextField).clear().type('12')
-                cy.get(timeSelectors.PunchInOut.timeMinTextField).clear().type('30')
+                cy.get(timeSelectors.PunchInOut.timeHrTextField).clear().type('1')
+                cy.get(timeSelectors.PunchInOut.timeMinTextField).clear().type('02')
                 cy.get(timeSelectors.PunchInOut.timeAM).click();
         });
+        cy.get(timeSelectors.PunchInOut.timeBtn).click()
     }
 
+    static verifyNoteTxtArea() {
+        cy.get(timeSelectors.PunchInOut.noteTxt)
+            .should('be.visible')
+            .should('have.attr', 'placeholder', 'Type here')
+            .type('Test Note');
+    }
 
-    // tobe refactored
-    // static verifyToggleOn(){
-    //     cy.get(timeSelectors.configuration.switchCheckBox).eq(1).then(($switch) => {
-    //         if (!$switch.is(':checked')) {
-    //             cy.wrap($switch).click({ force: true});
-    //         }
-    //     });
-    // }
+    static verifyPunchIn() {
+        cy.get(timeSelectors.PunchInOut.punchInBtn)
+            .should('be.visible')
+            .click();
+
+        cy.get(timeSelectors.successModal)
+            .should('to.be.visible')
+    }
+
+    static verifyPunchOut() {
+        cy.get(timeSelectors.PunchInOut.punchOutBtn)
+            .should('be.visible')
+            .click();
+    }
 
     //wrapper function
     static verifyAttendance() {

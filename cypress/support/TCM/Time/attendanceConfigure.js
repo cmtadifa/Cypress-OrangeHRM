@@ -21,5 +21,13 @@ describe('Attendance Configure', () => {
     it('verify Setting a time', function () {
         timePage.verifyTime();
     });
+
+    it('verify adding a note', function () {
+        timePage.verifyNoteTxtArea();
+    });
+
+    it('verify Punching In', function () {
+        timePage.verifyPunchIn();
+    });
     
 });
