@@ -1,3 +1,5 @@
+const dayjs = require('dayjs');
+
 const timeSelectors = {
     navBarBtn: '.oxd-topbar-body-nav-tab',
     navBarDropDown: '.oxd-topbar-body-nav-tab-link',
@@ -19,7 +21,9 @@ const timeSelectors = {
         timePM:'input[name="pm"]',
         punchInBtn: 'button[type="submit"]',
         punchOutBtn: '.oxd-punch-out-button',
-        noteTxt: '.oxd-textarea'
+        noteTxt: '.oxd-textarea',
+        punchInWrapper: '.oxd-grid-item',
+
     }
 }
 
@@ -74,6 +78,12 @@ class timePage {
         cy.get(timeSelectors.PunchInOut.punchOutBtn)
             .should('be.visible')
             .click();
+    }
+
+    static verifyTxt() {
+        const today = dayjs().format('YYYY-DD-MM');
+        cy.get(timeSelectors.PunchInOut.punchInWrapper)
+            .should('contain.text', today);
     }
 
     //wrapper function

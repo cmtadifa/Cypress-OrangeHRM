@@ -29,5 +29,9 @@ describe('Attendance Configure', () => {
     it('verify Punching In', function () {
         timePage.verifyPunchIn();
     });
+
+    it('verify Date Record', function () {
+        timePage.verifyTxt();
+    });
     
 });
