@@ -20,6 +20,15 @@ const timeSelectors = {
         punchInBtn: 'button[type="submit"]',
         punchOutBtn: '.oxd-punch-out-button',
         noteTxt: '.oxd-textarea'
+    },
+    myRecords: {
+        recordsDate: 'oxd-input--active',
+        recordBtn: ' oxd-button--secondary',
+        recordTtlDuration: '.orangehrm-header-total',
+        recordTable: '.orangehrm-my-attendance',
+        recordActionBtn: '.oxd-table-cell-action-space',
+        recordDeleteSelectedBtn: '.oxd-button--label-danger',
+        recordTableCheckbox: '.oxd-checkbox-input--active'
     }
 }
 
