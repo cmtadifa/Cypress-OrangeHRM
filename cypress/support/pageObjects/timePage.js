@@ -28,7 +28,9 @@ const timeSelectors = {
         recordTable: '.orangehrm-my-attendance',
         recordActionBtn: '.oxd-table-cell-action-space',
         recordDeleteSelectedBtn: '.oxd-button--label-danger',
-        recordTableCheckbox: '.oxd-checkbox-input--active'
+        recordTableCheckbox: '.oxd-checkbox-input--active',
+        recordTableBody: '.oxd-table-body',
+        recordTableCard: '.oxd-table-card',
     }
 }
 
@@ -84,6 +86,18 @@ class timePage {
             .should('be.visible')
             .click();
     }
+
+    static verifyClickingMyRecords() {
+        cy.get(timeSelectors.navBarBtn).eq(1).click()
+            .find(timeSelectors.navBarDropDown).eq(0).click();
+    }
+
+    static verifytotalHrs() {
+        cy.get(timeSelectors.myRecords.recordTtlDuration)
+            .should('be.visible');
+    }
+
+
 
     //wrapper function
     static verifyAttendance() {
