@@ -130,7 +130,7 @@ class timePage {
     static verifyRecordText() {
         cy.get(timeSelectors.myRecords.recordFoundTxt)
             .should('be.visible')
-            .contains('Records Found');
+            .contains(/Records? Found/);
     }
 
     static verifyRecords() {
@@ -141,6 +141,7 @@ class timePage {
     //wrapper function
     static verifyAttendance() {
         require('../../support/TCM/Time/attendanceConfigure');
+        require('../../support/TCM/Time/punchInOut');
         require('../../support/TCM/Time/myRecord');
     }
 
