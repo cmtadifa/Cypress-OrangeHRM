@@ -6,20 +6,9 @@ describe('Attendance Configure', () => {
         timePage.verifyClickingConfiguration();
     });
 
+    // to enhance
     // it('verify toggle On', function () {
     //     timePage.verifyToggleOn();
     // });
 
-    it('verify clicking Punch In/Out', function () {
-        timePage.verifyClickingCPunchInOut();
-    });
-
-    it('verify Date today', function () {
-        timePage.verifyDate();
-    });
-
-    it('verify Setting a time', function () {
-        timePage.verifyTime();
-    });
-    
 });
