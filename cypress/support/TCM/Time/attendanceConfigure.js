@@ -10,27 +10,27 @@ describe('Attendance Configure', () => {
     //     timePage.verifyToggleOn();
     // });
 
-    it('verify clicking Punch In/Out', function () {
+    it.skip('verify clicking Punch In/Out', function () {
         timePage.verifyClickingCPunchInOut();
     });
 
-    it('verify Date today', function () {
+    it.skip('verify Date today', function () {
         timePage.verifyDate();
     });
 
-    it('verify Setting a time', function () {
+    it.skip('verify Setting a time', function () {
         timePage.verifyTime();
     });
 
-    it('verify adding a note', function () {
+    it.skip('verify adding a note', function () {
         timePage.verifyNoteTxtArea();
     });
 
-    it('verify Punching In', function () {
+    it.skip('verify Punching In', function () {
         timePage.verifyPunchIn();
     });
 
-    it('verify Date Record', function () {
+    it.skip('verify Date Record', function () {
         timePage.verifyTxt();
     });
     

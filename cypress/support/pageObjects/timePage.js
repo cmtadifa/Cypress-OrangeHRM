@@ -2,6 +2,19 @@ const timeSelectors = {
     navBarBtn: '.oxd-topbar-body-nav-tab',
     navBarDropDown: '.oxd-topbar-body-nav-tab-link',
     successModal: '.oxd-toast--success',
+    calendar:{
+        calendar: '.oxd-date-input-calendar',
+        calendarhdr: '.oxd-calendar-header',
+        leftArw:'.oxd-icon.bi-chevron-left',
+        rightArw:'.oxd-icon.bi-chevron-right',
+        monthSelector: '.oxd-calendar-selector-month',
+        yearSelector: '.oxd-calendar-selector-year',
+        dayWrapper: '.oxd-calendar-date-wrapper',
+        daySelector: '.oxd-calendar-date',
+        todayDate: '.oxd-date-input-link.--today',
+        clearDate: '.oxd-date-input-link.--clear',
+        closeDate: '.oxd-date-input-link.--close'
+    },
     configuration: {
         headerTitle: '.orangehrm-main-title',
         attendanceLabel: '.orangehrm-attendance-field-label',
@@ -22,15 +35,17 @@ const timeSelectors = {
         noteTxt: '.oxd-textarea'
     },
     myRecords: {
-        recordsDate: 'oxd-input--active',
-        recordBtn: ' oxd-button--secondary',
+        recordsDateIcon: '.oxd-date-input-icon',
+        recordBtn: '.oxd-button--secondary',
         recordTtlDuration: '.orangehrm-header-total',
         recordTable: '.orangehrm-my-attendance',
         recordActionBtn: '.oxd-table-cell-action-space',
         recordDeleteSelectedBtn: '.oxd-button--label-danger',
         recordTableCheckbox: '.oxd-checkbox-input--active',
+        recordFoundTxt: '.orangehrm-vertical-padding',
         recordTableBody: '.oxd-table-body',
         recordTableCard: '.oxd-table-card',
+
     }
 }
 
@@ -92,16 +107,41 @@ class timePage {
             .find(timeSelectors.navBarDropDown).eq(0).click();
     }
 
-    static verifytotalHrs() {
-        cy.get(timeSelectors.myRecords.recordTtlDuration)
-            .should('be.visible');
+    static verifyDateofRecords() {
+        cy.get(timeSelectors.myRecords.recordsDateIcon).click()
+
+        cy.get(timeSelectors.calendar.calendar)
+            .should('be.visible')
+                .find(timeSelectors.calendar.todayDate).click();
     }
 
+    static verifyViewBtn() {
+        cy.get(timeSelectors.myRecords.recordBtn)
+            .should('be.visible')
+            .click();
+    }
 
+    static verifytotalHrs() {
+        cy.get(timeSelectors.myRecords.recordTtlDuration)
+            .should('be.visible')
+            .contains('Total Duration (Hours):');
+    }
+
+    static verifyRecordText() {
+        cy.get(timeSelectors.myRecords.recordFoundTxt)
+            .should('be.visible')
+            .contains('Records Found');
+    }
+
+    static verifyRecords() {
+        cy.get(timeSelectors.myRecords.recordTable)
+            .should('be.visible');
+    }
 
     //wrapper function
     static verifyAttendance() {
         require('../../support/TCM/Time/attendanceConfigure');
+        require('../../support/TCM/Time/myRecord');
     }
 
 }
