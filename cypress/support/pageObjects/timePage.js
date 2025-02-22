@@ -32,7 +32,9 @@ const timeSelectors = {
         timePM:'input[name="pm"]',
         punchInBtn: 'button[type="submit"]',
         punchOutBtn: '.oxd-punch-out-button',
-        noteTxt: '.oxd-textarea'
+        noteTxt: '.oxd-textarea',
+        punchTextWrapper: '.oxd-grid-item--gutters',
+        punchText: '.oxd-text--subtitle-2'
     },
     myRecords: {
         recordsDateIcon: '.oxd-date-input-icon',
@@ -94,6 +96,20 @@ class timePage {
 
         cy.get(timeSelectors.successModal)
             .should('to.be.visible')
+    }
+
+    static verifyPunchedInText() {
+        cy.get(timeSelectors.PunchInOut.punchTextWrapper)
+            .should('be.visible')
+                cy.get(timeSelectors.PunchInOut.punchText)
+                .contains(/AM|PM/);
+    }
+
+    static verifyPunchedInNote() {
+        cy.get(timeSelectors.PunchInOut.punchTextWrapper)
+            .should('be.visible')
+                .find(timeSelectors.PunchInOut.punchText)
+                .contains('Test Note');
     }
 
     static verifyPunchOut() {
