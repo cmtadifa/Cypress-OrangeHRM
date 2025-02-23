@@ -22,7 +22,6 @@ describe('Punch In and Out', () => {
         timePage.verifyPunchIn();
     });
 
-    //to enhance
     it('verify Punched In Time', function () {
         timePage.verifyPunchedInText();
     });
@@ -31,10 +30,8 @@ describe('Punch In and Out', () => {
         timePage.verifyPunchedInNote();
     });
     
-    // to check
-    // it('verify Punching Out', function () {
-    //     cy.wait(3000);
-    //     timePage.verifyPunchOut();
-    // });
+    it('verify Punching Out', function () {
+        timePage.verifyPunchIn();
+    });
 
 });
