@@ -22,8 +22,16 @@ describe('Punch In and Out', () => {
         timePage.verifyPunchIn();
     });
 
-    it('verify Date Record', function () {
-        timePage.verifyTxt();
+    it('verify Punched In Time', function () {
+        timePage.verifyPunchedInText();
+    });
+
+    it('verify Punched In Note', function () {
+        timePage.verifyPunchedInNote();
     });
     
+    it('verify Punching Out', function () {
+        timePage.verifyPunchIn();
+    });
+
 });
