@@ -102,7 +102,7 @@ class timePage {
         cy.get(timeSelectors.PunchInOut.punchTextWrapper)
             .should('be.visible')
                 cy.get(timeSelectors.PunchInOut.punchText)
-                .contains(/AM|PM/);
+                    .contains(/AM|PM/);
     }
 
     static verifyPunchedInNote() {
