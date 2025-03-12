@@ -6,9 +6,13 @@ pipeline {
         choice(name: 'BROWSER', choices: ['chrome'], description: 'Browser to run the tests')
     }
     stages{
+        stage('Install Dependencies') {
+            steps {
+                bat "npm ci" 
+                bat "npx cypress install" 
+            }
         stage('Testing'){
             steps{
-                bat "npm i"
                 bat "npx cypress run --browser ${BROWSER} --spec ${js}"
             }
         }
