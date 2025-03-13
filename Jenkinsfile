@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        string(name: 'js', defaultValue: 'cypress/integration/**/**/', description: 'Path to the JS files')
+        string(name: 'js', defaultValue: 'cypress/integration/test/**/*.js', description: 'Path to the JS files')
         choice(name: 'BROWSER', choices: ['chrome'], description: 'Browser to run the tests')
     }
     stages{
