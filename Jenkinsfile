@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Testing'){
             steps{
-                bat "npx cypress run --browser ${params.BROWSER} --spec cypress/integrations/test/${params.JS_FILE}"
+                bat "npx cypress run --browser ${params.BROWSER} --spec cypress/integrations/test/**/${params.JS_FILE}"
             }
         }
         stage('Deploying'){
