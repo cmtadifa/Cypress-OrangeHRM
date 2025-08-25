@@ -1,5 +1,3 @@
-To be follow
-
 ## Cypress-OrangeHRM
 
 This project automates testing for the OrangeHRM application using [Cypress](https://www.cypress.io/).
