@@ -32,7 +32,7 @@ This project automates testing for the OrangeHRM application using [Cypress](htt
 ### Installation
 
 ```bash
-git clone https://github.com/yourusername/Cypress-OrangeHRM.git
+git clone https://github.com/cmtadifa/Cypress-OrangeHRM.git
 cd Cypress-OrangeHRM
 npm install
 ```
@@ -55,13 +55,33 @@ npx cypress run
 
 ```
 Cypress-OrangeHRM/
-├── cypress/
-│   ├── e2e/              # End-to-end test specs
-│   ├── fixtures/         # Test data files
-│   ├── support/          # Custom commands and utilities
-│   └── screenshots/      # Screenshots from test runs
-├── cypress.config.js     # Cypress configuration file
-├── package.json          # Project dependencies and scripts
-├── README.md             # Project documentation
-└── .gitignore            # Git ignore rules
+│── cypress/
+│   ├── e2e/                  # Test cases
+│   │   ├── PIM/              # Employee-related scenarios
+│   │   │   └── addEmployeeScenario.js
+│   │   ├── Time/             # Attendance & time tracking scenarios
+│   │   │   └── attendanceScenario.js
+│   │   └── TCM/              # Test case modules (Login, PIM, etc.)
+│   │       ├── Login/
+│   │       │   ├── Invalid_Credentials.js
+│   │       │   ├── Required_Fields.js
+│   │       │   └── Success_Login.js
+│   │       └── ...
+│   ├── fixtures/             # Test data (e.g., login credentials)
+│   │   └── Login.json
+│   ├── pageObjects/          # Page Object Model classes
+│   │   ├── DashboardPage.js
+│   │   ├── LoginPage.js
+│   │   ├── sideBarPage.js
+│   │   └── timePage.js
+│   ├── screenshots/          # Screenshots after test runs
+│   ├── support/              # Reusable commands/utilities
+│   │   └── commands.js
+│   └── plugins/              # Cypress plugins if any
+│
+│── cypress.config.js         # Cypress configuration file
+│── Jenkinsfile               # CI/CD pipeline config
+│── package.json              # Dependencies & scripts
+│── README.md                 # Project documentation
+
 ```
