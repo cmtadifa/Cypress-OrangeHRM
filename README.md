@@ -1,8 +1,15 @@
 ## Cypress-OrangeHRM
 
 This project automates testing for the OrangeHRM application using [Cypress](https://www.cypress.io/).
-It covers core HR features such as Login, Employee Management, Time Tracking, and Dashboard validation.
-The project is designed to demonstrate real-world automation testing skills with clean structure, reusable page objects, and data-driven testing.
+### Key Features
+
+- Real-world automation testing examples for OrangeHRM
+- Clean and maintainable project structure
+- Reusable Page Object Model (POM) classes
+- Data-driven testing using fixtures
+- Comprehensive coverage of core HR modules (Login, Employee Management, Time Tracking, Dashboard)
+- Fast execution and detailed reporting
+- Beginner-friendly setup and documentation
 
 ### Features
 
